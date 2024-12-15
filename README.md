@@ -156,3 +156,6 @@ Write the following methods in the models(Article, Author, magazine) provided in
 
 
 
+<Magazine The Saturday Evening Post>
+Nora Ephron>
+<Article The Tipping Point>
