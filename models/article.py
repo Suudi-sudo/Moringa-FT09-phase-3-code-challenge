@@ -1,5 +1,3 @@
-from database.connection import get_db_connection
-
 class Article:
     def __init__(self, id, title, content, author_id, magazine_id):
         self.id = id
@@ -10,11 +8,9 @@ class Article:
         self.author_id = author_id
         self.magazine_id = magazine_id
 
-        # Creating a new article entry in the database when initializing
-        self.create_article()
-
     def __repr__(self):
         return f'<Article {self.title}>'
+<<<<<<< HEAD
 
     # Creating a new article in the database
     def create_article(self):
@@ -60,3 +56,5 @@ class Article:
         magazine_data = cursor.fetchone()
         conn.close()
         return magazine_data
+=======
+>>>>>>> parent of 2934b6d (complete code challenge)
