@@ -3,23 +3,21 @@ from .connection import get_db_connection
 def create_tables():
     conn = get_db_connection()
     cursor = conn.cursor()
-<<<<<<< HEAD
+
 
     # Create authors table
-=======
+
     
->>>>>>> parent of 2934b6d (complete code challenge)
+
     cursor.execute('''
         CREATE TABLE IF NOT EXISTS authors (
             id INTEGER PRIMARY KEY AUTOINCREMENT,
             name TEXT NOT NULL
         )
     ''')
-<<<<<<< HEAD
 
-    # Create magazines table
-=======
->>>>>>> parent of 2934b6d (complete code challenge)
+
+    # Create magazines taable
     cursor.execute('''
         CREATE TABLE IF NOT EXISTS magazines (
             id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -27,11 +25,11 @@ def create_tables():
             category TEXT NOT NULL
         )
     ''')
-<<<<<<< HEAD
+
 
     # Create articles table
-=======
->>>>>>> parent of 2934b6d (complete code challenge)
+
+
     cursor.execute('''
         CREATE TABLE IF NOT EXISTS articles (
             id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -44,10 +42,9 @@ def create_tables():
         )
     ''')
 
-<<<<<<< HEAD
+
     # Commit and close connection
-=======
->>>>>>> parent of 2934b6d (complete code challenge)
+
     conn.commit()
     conn.close()
 
