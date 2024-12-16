@@ -3,7 +3,9 @@ from database.connection import get_db_connection
 class Article:
     def __init__(self, id, title, content, author_id, magazine_id):
         self.id = id
-        self.title = title
+        self._title = None  # Initialize _title to avoid AttributeError
+        print(f"Initializing Article with title: '{title}' (Length: {len(title)})")  # Debugging line
+        self.title = title  # This will invoke the setter for title
         self.content = content
         self.author_id = author_id
         self.magazine_id = magazine_id
@@ -32,6 +34,7 @@ class Article:
 
     @title.setter
     def title(self, value):
+        print(f"Setting title: '{value}' (Length: {len(value)})")  # Debugging line
         if len(value) < 5 or len(value) > 50:
             raise ValueError("Title must be between 5 and 50 characters")
         self._title = value

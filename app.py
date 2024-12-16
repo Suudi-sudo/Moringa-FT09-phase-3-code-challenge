@@ -1,3 +1,4 @@
+import sqlite3
 from database.setup import create_tables
 from database.connection import get_db_connection
 from models.article import Article
@@ -19,6 +20,8 @@ def main():
     conn = get_db_connection()
     cursor = conn.cursor()
 
+    # Set cursor to return rows as dictionaries
+    cursor.row_factory = sqlite3.Row
 
     '''
         The following is just for testing purposes, 
@@ -27,11 +30,11 @@ def main():
 
     # Create an author
     cursor.execute('INSERT INTO authors (name) VALUES (?)', (author_name,))
-    author_id = cursor.lastrowid # Use this to fetch the id of the newly created author
+    author_id = cursor.lastrowid  # Use this to fetch the id of the newly created author
 
     # Create a magazine
-    cursor.execute('INSERT INTO magazines (name, category) VALUES (?,?)', (magazine_name, magazine_category))
-    magazine_id = cursor.lastrowid # Use this to fetch the id of the newly created magazine
+    cursor.execute('INSERT INTO magazines (name, category) VALUES (?, ?)', (magazine_name, magazine_category))
+    magazine_id = cursor.lastrowid  # Use this to fetch the id of the newly created magazine
 
     # Create an article
     cursor.execute('INSERT INTO articles (title, content, author_id, magazine_id) VALUES (?, ?, ?, ?)',
